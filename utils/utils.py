@@ -1898,4 +1898,3 @@ async def startup_check():
     if not Config.DATABASE_URI:
         LOGGER.warning("No DATABASE_URI , found. It is recommended to use a database.")
     return True
-
