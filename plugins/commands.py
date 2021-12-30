@@ -53,7 +53,7 @@ IST = pytz.timezone(Config.TIME_ZONE)
 if Config.DATABASE_URI:
     from utils import db
 
-HOME_TEXT = "<b>سلام  [{}](tg://user?id={}) 🙋‍♂️\n\nمن یک ربات پخش کننده موسیقی، فایل صوتی ویدیوها در چت های صوتی تلگرام (کانال،گروه)  هستم. همچنین من میتوانم می توانم هر ویدیوی یوتیوب یا یک فایل تلگرام یا حتی یک یوتیوب زنده را نیز پخش کنم.\n\nامکانات بسیار زیادی دارم. برای نصب و فعالسازی ربات روی دکمه 🧩 درخواست نصب ربات کلیک کرده و با سازنده من، مکاتبه نمایید.</b>"
+HOME_TEXT = "<b>سلام  [{}](tg://user?id={}) 🙋‍♂️\n\nمن یک ربات پخش کننده موسیقی، فایل صوتی ویدیوها در چت های صوتی تلگرام (کانال،گروه)  هستم. همچنین من میتوانم می توانم هر ویدیوی یوتیوب یا یک فایل تلگرام یا حتی یک یوتیوب زنده را نیز پخش کنم.\n\nامکانات بسیار زیادی دارم. برای نصب و فعالسازی ربات روی دکمه 🧩 درخواست نصب ربات کلیک کرده و با پشتیبان من، مکاتبه نمایید.</b>"
 admin_filter=filters.create(is_admin) 
 
 @Client.on_message(filters.command(['start', f"start@{Config.BOT_USERNAME}"]))
@@ -129,8 +129,8 @@ async def start(client, message):
         return
     buttons = [
         [
-            InlineKeyboardButton('⚙️ کانال دیجی گرام 24', url='https://t.me/OnlineMusic24'),
-            InlineKeyboardButton('🧩 درخواست نصب ربات', url='https://t.me/mir_tar')
+            InlineKeyboardButton('⚙️ کانال ربات موزیک', url='https://t.me/OnlineMusic24'),
+            InlineKeyboardButton('🧩 درخواست نصب ربات', url='https://t.me/MrAmir051')
         ],
         [
             InlineKeyboardButton('👨🏼‍🦯 راهنما', callback_data='help_main'),
@@ -188,15 +188,15 @@ async def show_help(client, message):
 async def repo_(client, message):
     buttons = [
         [
-            InlineKeyboardButton('🧩 سازنده ربات', url='https://t.me/mir_tar'),
+            InlineKeyboardButton('🧩 پشتیبان ربات', url='https://t.me/MrAmir051'),
             InlineKeyboardButton('⚙️ کانال ربات', url='https://t.me/OnlineMusic24'),     
         ],
         [
-            InlineKeyboardButton("🎞 نحوه فعالسازی ربات", url='https://t.me/mir_tar'),
+            InlineKeyboardButton("🎞 نحوه فعالسازی ربات", url='https://t.me/MrAmir051'),
             InlineKeyboardButton('🗑 خروج', callback_data='close'),
         ]
     ]
-    await message.reply("<b>برای اطلاع  بیشتر و نصب ربات پخش کننده موزیک و ویدیو در گروهتان با آیدی سازنده ربات در ارتباط باشید. <a href=https://t.me/mir_tar>OnlineMusic24.</a>\n هم ویدیو هم موزیک قابل پخش است.\n\nبدون محدویت حجم فایل 🙃.</b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    await message.reply("<b>برای اطلاع  بیشتر و نصب ربات پخش کننده موزیک و ویدیو در گروهتان با آیدی پشتیبان ربات در ارتباط باشید. <a href=https://t.me/MrAmir051>OnlineMusic24.</a>\n هم ویدیو هم موزیک قابل پخش است.\n\nبدون محدویت حجم فایل 🙃.</b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
     await delete_messages([message])
 
 @Client.on_message(filters.command(['restart', 'update', f"restart@{Config.BOT_USERNAME}", f"update@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
@@ -258,7 +258,7 @@ async def set_heroku_var(client, message):
                     await delete_messages([message])
                     return
                 else:
-                    await m.edit("ورودی ارسالی نامعتبر است. از سازنده ربات (@mir_tar) درخواست کمک نمایید.")
+                    await m.edit("ورودی ارسالی نامعتبر است. از پشتیبان ربات (@MrAmir051) درخواست کمک نمایید.")
                     await delete_messages([message, m])
                     return     
             
