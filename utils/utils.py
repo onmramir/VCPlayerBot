@@ -869,7 +869,7 @@ async def chek_the_media(link, seek=False, pic=False, title="Music"):
                 is_audio_ = False
                 LOGGER.error("Unable to get Audio properties within time.")
             if is_audio_:
-                pic_=await bot.get_messages("arzgram", 556)
+                pic_=await bot.get_messages("arzgram", 550)
                 photo = "./pic/photo"
                 if not os.path.exists(photo):
                     photo = await pic_.download(file_name=photo)
@@ -1346,13 +1346,13 @@ async def pause():
 async def resume():
     try:
         await group_call.resume_stream(Config.CHAT)
-                pause=Config.DUR.get('PAUSE')
+        pause=Config.DUR.get('PAUSE')
         if pause:
             diff = time.time() - pause
             start=Config.DUR.get('TIME')
             if start:
                 Config.DUR['TIME']=start+diff
-        Config.PAUSE=False     
+        Config.PAUSE=False        
         return True
     except GroupCallNotFound:
         await restart_playout()
@@ -1907,3 +1907,4 @@ async def startup_check():
     if not Config.DATABASE_URI:
         LOGGER.warning("No DATABASE_URI , found. It is recommended to use a database.")
     return True
+
